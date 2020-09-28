@@ -1,0 +1,24 @@
+{% extends 'base.html'%}
+{% block style %}
+<style>
+    .infodiv{
+        padding: 20px;
+        margin-bottom: 10px;
+    }
+</style>
+{% endblock style %}
+{% block content %}
+<div class="container">
+    <h3>User Info</h3><br>
+        <div class="infodiv divback hoverable">  
+        User ID :- {{u.user_id}}<br>
+        First Name :- {{u.f_name}}<br>
+        Last Name :- {{u.l_name}}<br>
+        Birthdate :- {{u.birthdate}}<br>
+        Email-ID :- {{u.email}}<br><br>
+    
+        <a href="{% url 'logout' %}" class="btn btn-large btn-register waves-effect waves-light">LogOut</a>
+    </div>
+</div>
+
+{% endblock content%}

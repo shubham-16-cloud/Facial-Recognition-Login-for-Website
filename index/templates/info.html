@@ -1,0 +1,62 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block style %}
+<style>
+    .info_title{
+        font-size: 1.5rem !important;
+    }
+    .date{
+        display: table-caption;
+        padding-left: 5px;
+    }
+    .imgheight{
+        height:15rem !important;
+        margin-bottom: -5px;
+    }
+</style>
+{% endblock style %}
+
+{% block content %}
+ <div class="container">
+     <h5 class="center-align">Information</h5>
+     
+     {% if id == 'event' %}
+     {% for i in info %}
+     <div class="divback hoverable">
+         <div class="row">
+             <div class="col l4 m4 s12" style="padding-left: 0px !important;">
+                 <img src="{{i.event_img.url}}"  class="responsive-img imgheight">
+             </div>
+             <div class="col l8 m8 s12">
+                 <b class="info_title">{{i.event_title}}</b><br>
+                 <b><i class="material-icons info_title">insert_invitation</i><span class="date">{{i.event_date}}</span></b><br>
+                 <p style="text-align: justify;">
+                    {{i.event_text}}
+                 </p>
+             </div>
+         </div>
+     </div>
+     {% endfor %}
+     {% else %}
+     {% for i in info %}
+     <div class="divback hoverable">
+        <div class="row">
+            <div class="col l4 m4 s12" style="padding-left: 0px !important;">
+                <img src="{{i.news_img.url}}"  class="responsive-img imgheight">
+            </div>
+            <div class="col l8 m8 s12">
+                <b class="info_title">{{i.news_title}}</b><br>
+                <b><i class="material-icons info_title">insert_invitation</i><span class="date">{{i.news_date}}</span></b><br>
+                <p style="text-align: justify;">
+                    {{i.news_text}}
+                </p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+     {% endif %}
+     
+
+ </div>
+{% endblock content%}

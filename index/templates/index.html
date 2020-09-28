@@ -1,0 +1,176 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block style %}
+ <link rel="stylesheet" href="{% static 'css/index.css'%}">
+{% endblock style %}
+
+{% block content %}
+{% load static %}
+<div class="banermain">
+        <img src="{% static 'img/'%}{{banner.image}}" class="responsive-img baner-img">
+    <div class="baner-text-pos hoverable">
+        <h4>{{banner.title}}</h4>
+        <p class="baner-text">{{banner.subtext}}</p>
+    </div>
+</div>
+
+<!-- <div class="container red" >
+    <div class="green noticecard">
+        <div class="row">
+            <div class="col l4 m6 s12">1</div>
+            <div class="col l4 m6 s12">2</div>
+            <div class="col l4 m12 s12">3</div>
+        </div>
+    </div>
+</div> -->
+  <div class="container">
+     <div class="row samepos">
+         <div class="col l7 m7 s12 divback1 hoverable">
+             <div>
+                 <!--news end-->
+                 <div>
+                     <h5 id="h5">Events</h5>
+                     {% for event in events %}
+                     <div class="main" style="display: flex;">
+                         
+                         <div class="datetime">
+                             <span class="month">{{event.event_date|date:"F"}}</span><br>
+                             <span class="date">{{event.event_date|date:"d"}}</span>
+                         </div>
+                         <div class="link">
+                             <a href="#" style="color:black">{{event.event_title}}</a>
+                            </div>
+                     </div>
+                     <hr>
+                     {% endfor%}
+                     <a href="{% url 'info' 'event' %}" class="right">All Events<i class="material-icons" style="font-size: 11px;">send</i></a>
+                     <!--second end-->
+                 </div>
+             </div>
+         </div>
+         <!--first block end-->
+         <div class="col l5 m5 s12 divback hoverable">
+            <div>
+                <h5>News</h5>
+                <div class="newspos">
+                    <marquee direction="up" onmouseover="this.stop();" onmouseout="this.start();">
+                    {% for new in news %}
+                    <div>
+                   <b style="display: inline-flex; margin-top:10px">
+                       <i class="material-icons">insert_invitation</i>
+                       <span style="margin-left: 5px;">{{new.news_date}}</span></b><br>
+                       <div class="newscard">
+                           <a href="{% url 'info' new.id %}" style="color: black!important;" >{{new.news_title}}</a>
+                       </div>
+                    </div>
+                    <hr>
+                    {% endfor %}
+                </marquee>
+                    <a href="{% url 'info' 'news' %}" class="right">All News<i class="material-icons" style="font-size: 11px;">send</i></a>
+                </div>
+                <!--newspos end-->
+            </div>
+         </div>
+     </div>
+     <!--event news end-->
+{% for n in about %}
+{% if forloop.counter|divisibleby:2 %}
+     <div class="divback hoverable">
+        
+        <div class="row">
+            
+            <div class="col l6 m12 s12" style="padding-left:0rem !important;margin-bottom: -5px;">
+                  <img src="{{n.ab_img.url}}" class="responsive-img">
+            </div>
+            <!--secon div start-->
+            <div class="col l6 m12 s12">
+                <h5 class="center-align">{{n.ab_title}}</h5>
+                <p style="text-align: justify;">
+                    {{n.ab_subtext}}
+                </p>
+            </div>
+        </div>
+         
+        <!--first tab end-->
+  </div>
+  {% else %}
+  <!--second div start-->
+      <div class="divback hoverable">
+    <div class="row">
+        <div class="col l6 m12 s12">
+            <h5 class="center-align">{{n.ab_title}}</h5>
+            <p style="text-align: justify;">
+                {{n.ab_subtext}}
+            </p>
+</div>
+<div class="col l6 m12 s12" style="padding-right:0rem !important;margin-bottom: -5px;">
+<img src="{{n.ab_img.url}}" class="responsive-img">
+</div>
+
+    </div>
+      </div>
+    {% endif %}
+{% endfor %}
+  </div>
+  <!--why we should choose-->
+  <div class="center-align bgwhy">
+      <h5 style="color: white;padding: 20px 0px 10px 0px;">Why study with us?</h5>
+ <div class="row">
+     <div class="col l4">
+        <div class="card ">
+            <div class="card-image waves-effect waves-block waves-light pad">
+              <i class="material-icons large">school</i>
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4 ">Best Education<i class="material-icons right">layers</i></span>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+              <p>Here is some more information about this product that is only revealed once clicked on.</p>
+            </div>
+          </div>
+     </div>
+     <div class="col l4">
+        <div class="card">
+            <div class="card-image waves-effect waves-block waves-light pad">
+              <i class="material-icons large">language</i>
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4 ">World Top 10 University<i class="material-icons right">layers</i></span>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+              <p>Here is some more information about this product that is only revealed once clicked on.</p>
+            </div>
+          </div>
+     </div>
+     <div class="col l4">
+        <div class="card">
+            <div class="card-image waves-effect waves-block waves-light pad">
+              <i class="material-icons large">account_balance</i>
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">Best Campus<i class="material-icons right">layers</i></span>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+              <p>Here is some more information about this product that is only revealed once clicked on.</p>
+            </div>
+          </div>
+     </div>
+     
+ </div>
+</div>
+<!--akno-->
+<div class="container">
+<div class="divback hoverable">
+    <h5 class="center-align" style="padding: 10px 0px;">Acknowledgement</h5>
+    <p style="text-align:justify;padding:1.5rem 3rem 1.5rem 3rem">
+        I know that in the 21st century we are supposed to be all about the virtual university and so on. But I have opted to use the Internet as little as possible; I am not a fan of email or Google; in fact, I don’t watch television; I avoid “news” in all its forms.
+
+Why? Because I believe that the mass media erode the kind of originality that I am bound to strive for as an intellectual. Academic freedom to me means, in part, freedom from constant superficial chatter, and from overloading with what passes for “information” these days.
+    </p>
+</div>
+</div>
+{% endblock content %}

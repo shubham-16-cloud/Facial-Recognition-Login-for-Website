@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+       
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{%static 'css/materialize.min.css' %}">
+    <link rel="stylesheet" href="{%static 'css/base.css' %}">
+    
+    <title>SK University</title>
+    {% block style %}
+
+    {% endblock style %}
+    
+</head>
+<body>
+  
+
+    <header>
+    <div  id="stick">
+      <ul id="slide-out" class="sidenav side-out-width">
+        <li><a class="sidenav-close" style="display: contents;"><i class="material-icons closeicon">clear</i></a></li>
+        <div class="menupos menupos1">
+        <li><a class="waves-effect" href="{% url 'index' %}"><i class="material-icons">home</i>Home</a></li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">work</i>Departments</a></li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">collections</i>Gallery</a></li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">contacts</i>Contact Us</a></li>
+    </div>
+      </ul>
+      <a id="menu" href="#" data-target="slide-out" class="sidenav-trigger menu1"><i class="material-icons" style="font-size:2.8rem ;">menu</i></a>
+      <div class="right">
+        <a href="{% url 'login1' %}"class="waves-effect waves-light btn-small" style="margin-bottom: 10px;background-color: #817f9c;"><i class="material-icons left">person</i>Sign-In</a><br>
+        <a href="{% url 'signup' %}" class="waves-effect waves-light btn-small" style="background-color: #817f9c;"><i class="material-icons left">person_pin</i>Sign-Up</a>
+      </div>
+      <span><img id="logo" src="{% static 'img/logo1.png'%}" alt="logo" class="responsive-img logo" ></span>
+    
+  </div>
+    </header>
+    <main>
+      {% block content %}
+      
+      {% endblock content%}
+    </main>
+    <footer class="page-footer">
+        <div class="container">
+          <div class="row center-align">
+            <div class="col m4 s12">
+                <div class="row"></div>
+                <div>
+                    <img id="logo" src="{% static 'img/logo1.png'%}" alt="logo" class="responsive-img size" >
+                </div>
+                <div class="row"></div>
+            </div>
+            <div class="col m4 s12">
+<h5 class="white-text">About</h5>
+<p class="grey-text text-lighten-3" style="text-align: justify;">the first to give students the opportunity to study wherever they are, providing access to higher education across the globe. For almost 200 years, we have improved the lives of millions of people around the world through our unique approach to education, prompting Charles Dickens to term us the 'People's University'.</p>
+            </div>
+            <div class="col m4 s12">
+                
+<h5 class="white-text">Usefull Links</h5>
+<ul>
+  <li><a class="grey-text text-lighten-3" href="#!">Home</a></li>
+  <li><a class="grey-text text-lighten-3" href="#!">Departments</a></li>
+  <li><a class="grey-text text-lighten-3" href="#!">Gallery</a></li>
+  <li><a class="grey-text text-lighten-3" href="#!">Contact Us</a></li>
+</ul>
+            </div>
+
+          </div>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <div class="container">
+          © 2020 Copyright Text
+          <a class="grey-text text-lighten-4 right" href="#!">Email ID</a>
+          
+          </div>
+        </div>
+      </footer>
+    <script src="{%static 'js/materialize.min.js' %}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.sidenav');
+            var instances = M.Sidenav.init(elems);
+          });
+    </script>
+     <script>
+        window.onscroll = function() {myFunction()};
+        var menu = document.getElementById("menu");
+        function myFunction() {
+          if (window.pageYOffset >= 50) {
+            menu.classList.add("menuicon")
+          } else {
+            menu.classList.remove("menuicon");
+          }
+        }
+    </script>
+</body>
+</html>
