@@ -79,11 +79,11 @@ WSGI_APPLICATION = 'studentsystem.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST':'DESKTOP-4GPGIH8',
+        'HOST':'any',
         'NAME':'university',
-        'PORT':'3306',
+        'PORT':'0000',
         'USER':'Shubham',
-        'PASSWORD': 'JAY4494',
+        'PASSWORD': 'none',
     }
 }
 
